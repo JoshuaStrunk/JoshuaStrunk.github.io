@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="1Find.Path.From(startingLocation).To(targetLocation)
+For those not familiar with the term fluent interface it was popularized by Martin Fowler and Eri">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="StrunkJ"/>
+        <meta property="og:title" content="Thoughts On A Fluent Pathfinding API"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -42,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2016 - StrunkJ</title>
+    <title>Thoughts On A Fluent Pathfinding API - StrunkJ</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -133,63 +136,81 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2016</h1>
+                <div class="post-heading">
+                    <h1>Thoughts On A Fluent Pathfinding API</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-01-05
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/API-Design/">#API Design</a> <a href="/tags/DSL/">#DSL</a> <a href="/tags/Game-Development/">#Game Development</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Daily/">Daily</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2016/12/30/boot-up-complete/">
-        <h1 class="post-title archive">
-            Complete|100%|..........|
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-12-30
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2016/12/28/hello-world/">
-        <h1 class="post-title archive">
-            Rebooting|90%|......... |
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-12-28
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Find.Path.From(startingLocation).To(targetLocation)</div></pre></td></tr></table></figure>
+<p>For those not familiar with the term fluent interface it was popularized by <a href="http://www.martinfowler.com/" target="_blank" rel="external">Martin Fowler</a> and <a href="http://domainlanguage.com/" target="_blank" rel="external">Eric Evans</a>. Martin covers both the description and origin of term well, in his bliki post <a href="http://www.martinfowler.com/bliki/FluentInterface.html" target="_blank" rel="external">FluentInterface</a>. </p>
+<p>Most developers have likely encountered a fluent interface or written one without having a term for it. I personally stumbled onto the style and term recently. Below are some rough ideas for a fluent pathfinding api.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Find.Path.From(startingLocation).To(waypointOne).To(waypointTwo).To(waypointThree);</div><div class="line">Find.Path.To(destination).From(origin);</div><div class="line">Find.Path.AdjacentTo(target).From(startingPosition);</div><div class="line">Find.Path.From(start).To(target).UsingMoveSet(characterMoves).UsingAlgorithm(aStar);</div><div class="line">Find.Path.UsingPathableSpace(grid).From(cellA).To(cellB);</div><div class="line">Find.AllPoints.Within(<span class="number">3</span>).Moves().From(<span class="keyword">new</span> Point(<span class="number">0</span>,<span class="number">0</span>)).UsingMoveSet(Chess.Knight)</div><div class="line">Find.AllPoints.WithinSingleMove().Of(knightOne);</div><div class="line">Find.AllPoints.Within(<span class="number">2</span>).ManhattanDistance().From(position);</div><div class="line">Find.AllPoints.Within(<span class="number">2</span>).ManhattanDistance().From(position).RequireLineOfSight();</div><div class="line">Find.AllPoints.PathableTo().From(position).UsingMoveSet(characterMoves);</div></pre></td></tr></table></figure>
+<hr>
+<p><sub>Like or hate this post let me known on Twitter <a href="https://twitter.com/josh_strunk" target="_blank" rel="external">@josh_strunk</a></sub><br><sub><em>This post is part of the Daily series. Written daily these posts are quick to read, fast to write and designed to provide inspiration. Daily posts are not to be used as technical references or guides. They are not rigorously researched, edited, or updated.</em></sub></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
